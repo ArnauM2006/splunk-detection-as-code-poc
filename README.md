@@ -62,7 +62,7 @@ Contraseña: Admin123!
 
 4.Clonado del proyecto
 
-git clone https://github.com/arnau/splunk-detection-as-code-poc.git
+git clone https://github.com/ArnauM2006/splunk-detection-as-code-poc.git
 
 cd splunk-detection-as-code-poc
 
