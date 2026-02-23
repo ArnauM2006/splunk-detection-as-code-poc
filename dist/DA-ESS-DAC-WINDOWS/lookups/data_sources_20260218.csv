@@ -1,0 +1,3 @@
+name,id,author,source,sourcetype,separator,supported_TA_name,supported_TA_version,supported_TA_url,description
+Sysmon EventID 1,b375f4d1-d7ca-4bc0-9103-294825c0af17,"Patrick Bareiss, Splunk",XmlWinEventLog:Microsoft-Windows-Sysmon/Operational,xmlwineventlog,EventID,Splunk Add-on for Sysmon,4.0.0,https://splunkbase.splunk.com/app/5709/,Data source object for Sysmon EventID 1
+Windows Security 4625,52f0431d-b4d4-4c40-b562-61be5301b099,arnau,WinEventLog:Security,WinEventLog:Security,,,,,Windows Security EventCode 4625 - Failed logon attempts

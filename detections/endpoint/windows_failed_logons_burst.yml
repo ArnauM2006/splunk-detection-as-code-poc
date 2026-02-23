@@ -1,0 +1,58 @@
+name: Windows Failed Logons Burst
+id: be8f2615-e376-4ed9-8da9-b7cb73c7b9e0
+version: 1
+date: '2026-02-18'
+author: arnau
+status: production
+type: TTP
+description: Detects a burst of failed Windows logons in a short period, indicating potential brute force attacks.
+data_source:
+  - Windows Security 4625
+search: |
+  index=wineventlog sourcetype=WinEventLog:Security EventCode=4625
+  | bin _time span=5m
+  | stats count by _time, user, src_ip
+  | where count >= 20
+  | `windows_failed_logons_burst_filter`
+how_to_implement: Requires Windows Security Event Log ingestion and CIM mapping where applicable.
+known_false_positives: Users forgetting passwords or misconfigured scripts.
+references:
+  - https://research.splunk.com/
+drilldown_searches:
+  - name: View the detection results for a user and source IP
+    search: '%original_detection_search% | search user="$user$" src_ip="$src_ip$"'
+    earliest_offset: $info_min_time$
+    latest_offset: $info_max_time$
+  - name: View risk events for the last 7 days for a user and source IP
+    search: |
+      | from datamodel Risk.All_Risk
+      | search normalized_risk_object IN ("$user$", "$src_ip$") starthoursago=168
+      | stats count min(_time) as firstTime max(_time) as lastTime values(search_name) as "Search Name" values(risk_message) as "Risk Message"
+    earliest_offset: $info_min_time$
+    latest_offset: $info_max_time$
+rba:
+  message: Potential brute force detected
+  risk_objects:
+    - field: user
+      type: user
+      score: 10
+  threat_objects:
+    - field: src_ip
+      type: ip_address
+tags:
+  analytic_story:
+    - Windows Endpoint Activity
+  asset_type: Endpoint
+  mitre_attack_id:
+    - T1110
+  product:
+    - Splunk Enterprise
+    - Splunk Enterprise Security
+    - Splunk Cloud
+  security_domain: endpoint
+tests:
+  - name: True Positive Test
+    attack_data:
+      - data: tests/data/sample_failed_logons.csv
+        sourcetype: WinEventLog:Security
+        source: WinEventLog

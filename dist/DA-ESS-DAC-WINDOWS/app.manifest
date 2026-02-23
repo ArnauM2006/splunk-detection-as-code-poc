@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0.0",
+  "targetWorkloads": ["_search_heads"], 
+  "info": {
+    "title": "DAC_WINDOWS_APP", 
+    "id": {
+      "group": null, 
+      "name": "DA-ESS-DAC-WINDOWS", 
+      "version": "0.0.1"
+    }, 
+    "author": [
+      {
+        "name": "author name", 
+        "email": "author@contactemailaddress.com", 
+        "company": "author company"
+      }
+    ], 
+    "releaseDate": "2026-02-18", 
+    "description": "description of app", 
+    "classification": {
+      "intendedAudience": null, 
+      "categories": [], 
+      "developmentStatus": null
+    }, 
+    "commonInformationModels": null, 
+    "license": {
+      "name": null, 
+      "text": null, 
+      "uri": null
+    }, 
+    "privacyPolicy": {
+      "name": null, 
+      "text": null, 
+      "uri": null
+    }, 
+    "releaseNotes": {
+      "name": null, 
+      "text": "./README.md", 
+      "uri": null
+    }
+  }, 
+  "dependencies": null, 
+  "tasks": null, 
+  "inputGroups": null, 
+  "incompatibleApps": null, 
+  "platformRequirements": null
+}

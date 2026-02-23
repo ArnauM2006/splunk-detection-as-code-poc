@@ -1,0 +1,8 @@
+name: Windows Security 4625
+id: 52f0431d-b4d4-4c40-b562-61be5301b099
+version: 1
+author: arnau
+date: '2026-02-18'
+description: "Windows Security EventCode 4625 - Failed logon attempts"
+source: WinEventLog:Security
+sourcetype: WinEventLog:Security

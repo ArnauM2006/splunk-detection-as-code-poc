@@ -1,0 +1,29 @@
+name: Windows Endpoint Activity
+id: c3f9d2e7-8b4a-4a1e-9c7b-5f2a1d8e9b0f   # <--- UUID único
+version: 1
+date: '2026-02-18'
+author: Arnau
+status: production
+description: >
+  Windows Endpoint Activity is a story that provides context for endpoint
+  authentication events, such as logons and failed logons.
+
+narrative: >
+  This Analytic Story supports detection of endpoint authentication activity,
+  including failed logons, brute-force attempts, and unusual authentication
+  behavior. It provides context for security teams to investigate account
+  compromise and related incidents on Windows endpoints.
+
+references:
+- https://docs.microsoft.com/en-us/windows/security/threat-protection/auditing/event-4625
+- https://www.splunk.com/en_us/blog/security/windows-security-logs.html
+
+tags:
+  category:
+    - Account Compromise
+    - Adversary Tactics
+  product:
+    - Splunk Enterprise
+    - Splunk Enterprise Security
+    - Splunk Cloud
+  usecase: Advanced Threat Detection
